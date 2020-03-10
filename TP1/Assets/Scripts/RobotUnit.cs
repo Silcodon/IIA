@@ -88,6 +88,7 @@ public class RobotUnit : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             resourcesGathered++;
+         
 
         }
         else

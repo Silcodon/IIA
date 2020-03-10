@@ -36,6 +36,12 @@ public class LogaritmicRobotUnitBehaviour : RobotUnit
             resourceValue = max;
         else if (resourceValue < min)
             resourceValue = min;
+
+        if (resourcesGathered == maxObjects)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
         //FIM META2
 
 

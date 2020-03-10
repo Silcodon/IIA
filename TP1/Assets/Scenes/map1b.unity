@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
@@ -347,7 +347,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
@@ -556,18 +556,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460255702}
   m_CullTransparentMesh: 0
---- !u!114 &469849805 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7314612682239532039, guid: b606527f8af28664a894844f3f526637,
-    type: 3}
-  m_PrefabInstance: {fileID: 1669599652}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3a16dc6bfeb4c468864d89ef9d7563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &529902529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
@@ -783,7 +771,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
@@ -833,6 +821,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 607212694}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &674580226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7314612682239532039, guid: b606527f8af28664a894844f3f526637,
+    type: 3}
+  m_PrefabInstance: {fileID: 1669599652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3a16dc6bfeb4c468864d89ef9d7563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,9 +1067,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816468653}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d238ae7f005cd41b645e46ace1203f, type: 3}
+  m_Script: {fileID: 11500000, guid: dec4662ffb86a0a44844a4de8e988732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resourcesGathered: 0
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   countText: {fileID: 460255704}
   startTime: 0
   timeElapsed: 0
-  resourcesDetector: {fileID: 469849805}
+  resourcesDetector: {fileID: 674580226}
   blockDetector: {fileID: 1103738745}
   debugMode: 1
   weightResource: 1
@@ -1095,9 +1095,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816468653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec4662ffb86a0a44844a4de8e988732, type: 3}
+  m_Script: {fileID: 11500000, guid: 77d238ae7f005cd41b645e46ace1203f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resourcesGathered: 0
@@ -1105,11 +1105,11 @@ MonoBehaviour:
   countText: {fileID: 460255704}
   startTime: 0
   timeElapsed: 0
-  resourcesDetector: {fileID: 469849805}
+  resourcesDetector: {fileID: 674580226}
   blockDetector: {fileID: 1103738745}
   debugMode: 1
   weightResource: 1
-  weightWall: 0.5
+  weightWall: 0.4
   resourceValue: 0
   resouceAngle: 0
   AngleWall: 0
@@ -1401,10 +1401,10 @@ MonoBehaviour:
   numObjects: 0
   debug_mode: 0
   double_strength: 0
-  max_strength_linear: 0
-  min_strength_linear: 0
-  teta: 0.5
-  mi: 2
+  max_strength_linear: 0.75
+  min_strength_linear: 0.25
+  teta: 0.45
+  mi: 0
   E: 2.718281828459045
   gaussian_strength: 0
 --- !u!114 &1103738746
@@ -1659,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
@@ -1846,7 +1846,7 @@ PrefabInstance:
     - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
         type: 3}
       propertyPath: weightWall
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
         type: 3}
@@ -1857,6 +1857,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: max
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: min
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4098859518129120615, guid: b606527f8af28664a894844f3f526637,
         type: 3}
@@ -1915,13 +1925,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314612682239532039, guid: b606527f8af28664a894844f3f526637,
         type: 3}
-      propertyPath: teta
-      value: 0.5
+      propertyPath: max_strength_linear
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7314612682239532039, guid: b606527f8af28664a894844f3f526637,
         type: 3}
-      propertyPath: mi
-      value: 2
+      propertyPath: min_strength_linear
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314612682239532039, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: teta
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8831919988329666845, guid: b606527f8af28664a894844f3f526637,
         type: 3}
@@ -2025,7 +2040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3c82b519676c924b823eb945c9a8726, type: 2}
+  - {fileID: -7301279310005317288, guid: 44f88169a8ac649269d6f87dc55df24d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2148,7 +2163,7 @@ PrefabInstance:
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8579131249557736061, guid: a178fece808d444b1b26355fde5accad,
         type: 3}
