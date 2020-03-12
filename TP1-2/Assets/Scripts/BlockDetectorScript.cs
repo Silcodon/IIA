@@ -62,7 +62,7 @@ public class BlockDetectorScript : MonoBehaviour
         double aux1; // 1/(teta)*sqrt(2pi)
         double aux2; // -(1/2)*( (strength-mi)/ 2 ) ^2 
 
-        aux1 = (1 / teta * Math.Sqrt(2 * Math.PI));
+        aux1 = 1;
         aux2 = -(1 / 2) * Math.Pow((strength - mi) / teta, 2);
         gaussian_strength = aux1 * Math.Pow(E, aux2);
         strength = (float)gaussian_strength;
