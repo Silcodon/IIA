@@ -28,7 +28,6 @@ public class LinearRobotUnitBehaviour : RobotUnit
 
     void Update()
     {
-
         // get sensor data
         resouceAngle = resourcesDetector.GetAngleToClosestResource();
 
@@ -62,22 +61,26 @@ public class LinearRobotUnitBehaviour : RobotUnit
 
 
         //META2
-        if (WallValue > limiar_max_blocks)
+        if (blockDetector.strength > limiar_max_blocks)
         {
             WallValue = min;
         }
-        else if (WallValue < limiar_min_blocks)
+        else if (blockDetector.strength < limiar_min_blocks)
         {
             WallValue = min;
         }
-        if (resourceValue > limiar_max_resources)
+        if (resourcesDetector.strength > limiar_max_resources)
             resourceValue = min;
-        else if (resourceValue < limiar_min_resources)
+        else if (resourcesDetector.strength < limiar_min_resources)
             resourceValue = min;
 
         if (WallValue > max)
         {
             WallValue = max;
+        }
+        if(resourceValue > max)
+        {
+            resourceValue = max;
         }
 
         WallValue = weightWall * WallValue;
