@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816468653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dec4662ffb86a0a44844a4de8e988732, type: 3}
   m_Name: 
@@ -1088,6 +1088,8 @@ MonoBehaviour:
   WallValue: 0
   max: 0.75
   min: 0.25
+  limiar_max: 0
+  limiar_min: 0
 --- !u!114 &816468655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,6 +1118,8 @@ MonoBehaviour:
   WallValue: 0
   max: 0.75
   min: 0.25
+  limiar_max: 0
+  limiar_min: 0
 --- !u!1001 &822800564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1401,8 +1405,6 @@ MonoBehaviour:
   numObjects: 0
   debug_mode: 0
   double_strength: 0
-  max_strength_linear: 0.75
-  min_strength_linear: 0.25
   teta: 0.45
   mi: 0
   E: 2.718281828459045
@@ -1856,7 +1858,7 @@ PrefabInstance:
     - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
         type: 3}
@@ -1867,6 +1869,36 @@ PrefabInstance:
         type: 3}
       propertyPath: min
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: limiar_min_blocks
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: limiar_min_resources
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: limiar_max_resources
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: limiar_max_blocks
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: Type_Blocks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022615238940490695, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: Type_Resources
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4098859518129120615, guid: b606527f8af28664a894844f3f526637,
         type: 3}

@@ -20,11 +20,6 @@ public class LinearRobotUnitBehaviour : RobotUnit
     public Activation_type Type_Blocks;
     public Activation_type Type_Resources;
 
-    private void Start()
-    {
-        Type_Blocks = Activation_type.Linear;
-        Type_Resources = Activation_type.Linear;
-    }
 
     void Update()
     {
@@ -32,33 +27,6 @@ public class LinearRobotUnitBehaviour : RobotUnit
         resouceAngle = resourcesDetector.GetAngleToClosestResource();
 
         AngleWall = blockDetector.GetAngleToClosestObstacle()+180f;
-
-        switch (Type_Blocks)
-        {
-            case Activation_type.Linear:
-                WallValue = blockDetector.GetLinearOuput();
-                break;
-            case Activation_type.Gaussian:
-                WallValue = blockDetector.GetGaussianOutput();
-                break;
-            case Activation_type.Log:
-                WallValue = blockDetector.GetLogaritmicOutput();
-                break;
-        }
-
-        switch (Type_Resources)
-        {
-            case Activation_type.Linear:
-                resourceValue = resourcesDetector.GetLinearOuput();
-                break;
-            case Activation_type.Gaussian:
-                resourceValue = resourcesDetector.GetGaussianOutput();
-                break;
-            case Activation_type.Log:
-                resourceValue = resourcesDetector.GetLogaritmicOutput();
-                break;
-        }
-
 
         //META2
         if (blockDetector.strength > limiar_max_blocks)
@@ -69,10 +37,40 @@ public class LinearRobotUnitBehaviour : RobotUnit
         {
             WallValue = min;
         }
+        else
+        {
+            switch (Type_Blocks)
+            {
+                case Activation_type.Linear:
+                    WallValue = blockDetector.GetLinearOuput();
+                    break;
+                case Activation_type.Gaussian:
+                    WallValue = blockDetector.GetGaussianOutput();
+                    break;
+                case Activation_type.Log:
+                    WallValue = blockDetector.GetLogaritmicOutput();
+                    break;
+            }
+        }
         if (resourcesDetector.strength > limiar_max_resources)
             resourceValue = min;
         else if (resourcesDetector.strength < limiar_min_resources)
             resourceValue = min;
+        else
+        {
+            switch (Type_Resources)
+            {
+                case Activation_type.Linear:
+                    resourceValue = resourcesDetector.GetLinearOuput();
+                    break;
+                case Activation_type.Gaussian:
+                    resourceValue = resourcesDetector.GetGaussianOutput();
+                    break;
+                case Activation_type.Log:
+                    resourceValue = resourcesDetector.GetLogaritmicOutput();
+                    break;
+            }
+        }
 
         if (WallValue > max)
         {
@@ -81,6 +79,15 @@ public class LinearRobotUnitBehaviour : RobotUnit
         if(resourceValue > max)
         {
             resourceValue = max;
+        }
+
+        if (WallValue < min)
+        {
+            WallValue = min;
+        }
+        if (resourceValue < min)
+        {
+            resourceValue = min;
         }
 
         WallValue = weightWall * WallValue;
