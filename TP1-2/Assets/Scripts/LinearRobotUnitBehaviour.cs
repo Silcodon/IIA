@@ -31,11 +31,11 @@ public class LinearRobotUnitBehaviour : RobotUnit
         //META2
         if (blockDetector.strength > limiar_max_blocks)
         {
-            WallValue = min;
+            blockDetector.strength = min;
         }
         else if (blockDetector.strength < limiar_min_blocks)
         {
-            WallValue = min;
+            blockDetector.strength = min;
         }
         else
         {
@@ -53,9 +53,9 @@ public class LinearRobotUnitBehaviour : RobotUnit
             }
         }
         if (resourcesDetector.strength > limiar_max_resources)
-            resourceValue = min;
+            resourcesDetector.strength = min;
         else if (resourcesDetector.strength < limiar_min_resources)
-            resourceValue = min;
+            resourcesDetector.strength = min;
         else
         {
             switch (Type_Resources)
