@@ -9,11 +9,9 @@ using System.IO;
 public abstract class OptimisationAlgorithm : MonoBehaviour {
 
 
-    public int MaxNumberOfIterations = 100;
-    public int CurrentNumberOfIterations = 0;
-    public int iterationsPerFrame = 100;
-    public int randomSeed = 2020;
 
+    public int iterationsPerFrame = 100;
+    // for debug purposes this should hold all  nodes (color!) jncor: podemos tirar isto.. mas a parte das cores fica mais dificil
     protected Node startNode = null;
     protected int numberOfSteps = 0;
     protected bool TargetSequenceDefined = false;
@@ -24,7 +22,7 @@ public abstract class OptimisationAlgorithm : MonoBehaviour {
     protected Dictionary<string, Dictionary<string, int>> distanceMatrix;
 
     protected string information = "";
-    
+
 
 
     public void StartRunning(Node startNode) {
@@ -34,23 +32,18 @@ public abstract class OptimisationAlgorithm : MonoBehaviour {
         numberOfSteps = 0;
         targets = GetAllTargets();
         information = "";
-        Random.InitState(randomSeed);
-        Debug.Log("starting with random-seed:" + randomSeed);
         Begin();
-        
+        Random.InitState(2020);
     }
 
     // Update is called once per frame
     void Update() {
         if (running && !TargetSequenceDefined) {
             for (int i = 0; i < iterationsPerFrame; i++) {
-                if (CurrentNumberOfIterations < MaxNumberOfIterations) {
+                if (!TargetSequenceDefined) {
                     Step();
                     numberOfSteps++;
                 } else {
-                    // number of iterations have ended, saving the solution
-                    bestSequenceFound = CreateSequenceFromSolution(CurrentSolution);
-                    TargetSequenceDefined = true;
                     break;
                 }
             }

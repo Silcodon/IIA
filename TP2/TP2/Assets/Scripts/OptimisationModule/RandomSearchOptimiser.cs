@@ -7,8 +7,9 @@ using System.IO;
 
 public class RandomSearchOptimiser : OptimisationAlgorithm
 {
-    private int bestCost;
-    private List<int> newSolution = null;
+    public int MaxNumberOfIterations = 100;
+    private int CurrentNumberOfIterations = 1;
+
 
     private string fileName = "Assets/Logs/" + System.DateTime.Now.ToString("ddhmmsstt") + "_RandomSearchOptimiser.csv";
 
@@ -19,27 +20,23 @@ public class RandomSearchOptimiser : OptimisationAlgorithm
         CreateFile(fileName);
         bestSequenceFound = new List<GameObject>();
 
-        // Initialization.
-        this.newSolution = GenerateRandomSolution(targets.Count);
-        int quality = Evaluate(newSolution);
-        base.CurrentSolution = new List<int>(newSolution);
-        bestCost = quality;
-        
     }
 
     protected override void Step()
     {
-        
-        this.newSolution = GenerateRandomSolution(targets.Count);
-        int cost = Evaluate(newSolution);
-        if (cost < bestCost)
+        if(CurrentNumberOfIterations < MaxNumberOfIterations)
         {
-            base.CurrentSolution = new List<int>(newSolution);
-            bestCost = cost;
+            CurrentSolution = GenerateRandomSolution(targets.Count);
+
+        }
+        else
+        {
+            TargetSequenceDefined = true;
         }
 
+
         //DO NOT CHANGE THE LINES BELLOW
-        AddInfoToFile(fileName, CurrentNumberOfIterations, this.Evaluate(base.CurrentSolution), base.CurrentSolution);
+        AddInfoToFile(fileName, CurrentNumberOfIterations, this.Evaluate(CurrentSolution), CurrentSolution);
         CurrentNumberOfIterations++;
 
     }
