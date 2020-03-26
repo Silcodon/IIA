@@ -7,35 +7,44 @@ using System.IO;
 
 public class HillClimberOptimiser : OptimisationAlgorithm
 {
-
+    public int MaxNumberOfIterations = 100;
+    private int CurrentNumberOfIterations = 1;
+    private List<int> solution = null;
     private int bestCost;
-    private List<int> newSolution = null;
-    
 
     string fileName = "Assets/Logs/" + System.DateTime.Now.ToString("ddhmmsstt") + "_HillClimberOptimiser.csv";
 
 
     protected override void Begin()
     {
+
         CreateFile(fileName);
-        // Initialization
-        /* *****************************************
-                        YOUR CODE HERE
-            *****************************************                      
-        */
+        CurrentSolution = GenerateRandomSolution(targets.Count);
+        bestCost = Evaluate(CurrentSolution);
+
     }
 
     protected override void Step()
     {
-    
-        /* *****************************************
-                        YOUR CODE HERE
-            *****************************************                      
-        */
+        if (CurrentNumberOfIterations < MaxNumberOfIterations)
+        {
+            solution = GenerateNeighbourSolution(CurrentSolution);
+            if (Evaluate(solution) <= bestCost)
+            {
+                CurrentSolution = solution;
+                bestCost = Evaluate(solution);
+            }
+
+        }
+        else
+        {
+            bestSequenceFound = CreateSequenceFromSolution(CurrentSolution);
+            TargetSequenceDefined = true;
+        }
 
         //DO NOT CHANGE THE LINES BELLOW
-        AddInfoToFile(fileName, base.CurrentNumberOfIterations, this.Evaluate(base.CurrentSolution), base.CurrentSolution);
-        base.CurrentNumberOfIterations++;
+        AddInfoToFile(fileName, CurrentNumberOfIterations, this.Evaluate(base.CurrentSolution), base.CurrentSolution);
+        CurrentNumberOfIterations++;
 
     }
 
