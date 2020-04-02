@@ -29,7 +29,7 @@ public class GridMap : MonoBehaviour {
 	[HideInInspector]
 	public string prefixUiText = "Text-";
 
-	private string[] res = {"tree_a", "tree_b", "rock_b", "rock_c", "rock_d"};
+	//private string[] res = {"tree_a", "tree_b", "rock_b", "rock_c", "rock_d"};
 
 
 	public static int SortByName(GameObject o1, GameObject o2) {

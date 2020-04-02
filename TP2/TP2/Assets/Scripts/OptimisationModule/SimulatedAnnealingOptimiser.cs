@@ -4,44 +4,54 @@ using UnityEngine;
 
 public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
 {
-    public int MaxNumberOfIterations = 100;
-    private int CurrentNumberOfIterations = 1;
     private List<int> newSolution = null;
     private int CurrentSolutionCost;
     public float Temperature;
-    float probOfAcceptance;
+    private float probOfAcceptance;
     private int newSolutionCost;
-    private float e = 2.718281828459045235360287f;
-    private float zero = Mathf.Pow(10, -6);
+    private float zero = Mathf.Pow(10, -6);// numbers bellow this value can be considered zero.
+
     string fileName = "Assets/Logs/" + System.DateTime.Now.ToString("ddhmmsstt") + "_SimulatedAnnealingOptimiser.csv";
 
 
     protected override void Begin()
     {
-
+        //Inicializar array solucao e calcular custo
         CreateFileSA(fileName);
         CurrentSolution = GenerateRandomSolution(targets.Count);
         CurrentSolutionCost = Evaluate(CurrentSolution);
     }
 
+
+    //Funcoes de escalonamento de temperatura
     protected float TemperatureSchedule(float Temperature)
     {
         Temperature = -Mathf.Log(Temperature);
         return Temperature;
     }
 
+    protected float TemperatureSchedule2(float Temperature)
+    {
+        Temperature = Temperature / 2;
+        return Temperature;
+    }
+
+
     protected override void Step()
     {
-        if (CurrentNumberOfIterations < MaxNumberOfIterations && Temperature>0) 
+        //Percorrer iteraçoes
+        if (CurrentNumberOfIterations < MaxNumberOfIterations && Temperature > 0)
         {
+            //A nova solucao vai ter uma probabilidade de ser aceite, sendo esta maior quando a temperatura for maior. Ela é logo aceite se tiver um custo menor.
             newSolution = GenerateNeighbourSolution(CurrentSolution);
             newSolutionCost = Evaluate(newSolution);
-            probOfAcceptance = Mathf.Pow(e,(CurrentSolutionCost-newSolutionCost)/Temperature);
-            if(newSolutionCost<=CurrentSolutionCost || probOfAcceptance > Random.Range(0, 1))
+            probOfAcceptance = Mathf.Pow(e, (CurrentSolutionCost - newSolutionCost) / Temperature);
+            if (newSolutionCost <= CurrentSolutionCost || probOfAcceptance > Random.Range(0, 1))
             {
                 CurrentSolution = newSolution;
                 CurrentSolutionCost = newSolutionCost;
             }
+            //Funcao para fazer variar a temperatura ao longo do tempo.
             Temperature = TemperatureSchedule(Temperature);
 
         }
@@ -50,10 +60,9 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
             bestSequenceFound = CreateSequenceFromSolution(CurrentSolution);
             TargetSequenceDefined = true;
         }
-
         //DO NOT CHANGE THE LINES BELLOW
-        AddInfoToFile(fileName, CurrentNumberOfIterations, CurrentSolutionCost, CurrentSolution, Temperature);
-        CurrentNumberOfIterations++;
+        AddInfoToFile(fileName, base.CurrentNumberOfIterations, CurrentSolutionCost, CurrentSolution, Temperature);
+        base.CurrentNumberOfIterations++;
 
     }
 
