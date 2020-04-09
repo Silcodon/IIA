@@ -8,6 +8,7 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
     private int CurrentSolutionCost;
     public float Temperature;
     private float probOfAcceptance;
+    private float e = 2.7182818284f;
     private int newSolutionCost;
     private float zero = Mathf.Pow(10, -6);// numbers bellow this value can be considered zero.
 
