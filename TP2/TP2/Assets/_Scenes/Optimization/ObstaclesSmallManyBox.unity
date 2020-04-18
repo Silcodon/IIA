@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427135, b: 0.56452316, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1019,6 +1019,16 @@ PrefabInstance:
       propertyPath: costTableFile
       value: 
       objectReference: {fileID: 4900000, guid: a5ce2ec1c43e9482ebfd73ed19e9df6e, type: 3}
+    - target: {fileID: 199664548231404243, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199664548231404243, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: MaxNumberOfIterations
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 918055334186263890, guid: b606527f8af28664a894844f3f526637,
         type: 3}
       propertyPath: m_Enabled
@@ -1048,6 +1058,21 @@ PrefabInstance:
         type: 3}
       propertyPath: decay
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691899043822393169, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691899043822393169, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: MaxNumberOfIterations
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691899043822393169, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: Temperature
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4098859518129120615, guid: b606527f8af28664a894844f3f526637,
         type: 3}
@@ -1103,6 +1128,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493275552631916647, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493275552631916647, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: randomSeed
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493275552631916647, guid: b606527f8af28664a894844f3f526637,
+        type: 3}
+      propertyPath: MaxNumberOfIterations
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8831919988329666845, guid: b606527f8af28664a894844f3f526637,
         type: 3}

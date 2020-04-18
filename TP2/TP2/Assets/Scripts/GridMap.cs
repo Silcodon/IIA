@@ -152,10 +152,21 @@ public class GridMap : MonoBehaviour {
 		if (!randomCosts)
 			mapString = mapCosts.text.TrimEnd('\n').Split('\n');
 
+		GameObject targets_hier = GameObject.Find("Targets");
+		bool loadAllFromFile = false;
+		if(mapCosts.text.Contains("p") && mapCosts.text.Contains("r"))
+		{
+			Debug.Log("loading all from csv");
+			loadAllFromFile = true;
+		}
+		else
+		{
+			Debug.Log("using scenario placement");
+		}
 
-
+		GameObject player = GameObject.Find("D31");
 		Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y/2;
-
+		int count_targets = 0;
 		for (int y = 0; y < gridSizeY; y++) {
 			if (!randomCosts)
 				cost_line = mapString [gridSizeY - 1 - y].Split (',');
@@ -168,19 +179,43 @@ public class GridMap : MonoBehaviour {
 				if (randomCosts) {
 					grid [x, y].gCost = (int)(Random.value * 9f) + 1;
 				}else if(mapString !=null) {
-					int value = int.Parse (cost_line [x]);
-					if (value < 0) {
+					int value = 1; // default
+					if (cost_line[x].Equals("p"))
+					{
+						player.transform.position = grid[x, y].worldPosition;
+					}
+					else
+					{
+						if (cost_line[x].Equals("r"))
+						{
+							GameObject target = Instantiate(Resources.Load("Prefabs/Resource")) as GameObject;
+							target.transform.position = grid [x, y].worldPosition;
+							target.name = ""+count_targets;
+							count_targets++;
+						}
+						else
+						{// normal path
+							value = int.Parse(cost_line[x]);
+						}
+					}
+					
+					if (value < 0)
+					{
 						walkable = false;
-						grid [x, y].walkable = walkable;
-						grid [x, y].gCost = -1;
+						grid[x, y].walkable = walkable;
+						grid[x, y].gCost = -1;
 
-						if (!Physics.CheckSphere (worldPoint, nodeRadius/2, everything)) {
+						if (!Physics.CheckSphere(worldPoint, nodeRadius / 2, everything))
+						{
 							// if not added using inspector.. places a random asset instead
-							PlaceUnWalkable (grid [x, y]);
+							PlaceUnWalkable(grid[x, y]);
 						}
 					}
 					else
-						grid [x, y].gCost = value;
+					{
+						grid[x, y].gCost = value;
+						
+					}
 				}
 
 				if (!walkable) {
@@ -207,6 +242,14 @@ public class GridMap : MonoBehaviour {
 				gridCosts[x, y] = a_tile_text;
 
 			}
+		}
+
+		if (loadAllFromFile)
+		{
+			
+			// enable unit 
+			Debug.Log("Activate Unit");
+			player.SetActive(true);
 		}
 	}
 

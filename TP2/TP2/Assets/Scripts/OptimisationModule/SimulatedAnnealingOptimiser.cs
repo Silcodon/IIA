@@ -27,7 +27,7 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
     //Funcoes de escalonamento de temperatura
     protected float TemperatureSchedule(float Temperature)
     {
-        Temperature = -Mathf.Log(Temperature);
+        Temperature = 1/Temperature; 
         return Temperature;
     }
 

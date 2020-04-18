@@ -52,8 +52,8 @@ public class Agent : MonoBehaviour {
 
 
 
-		Node start_pos = GridMap.instance.NodeFromWorldPoint (transform.position);
-        transform.position = start_pos.worldPosition + new Vector3(0f,0.5f,0f);
+		//Node start_pos = GridMap.instance.NodeFromWorldPoint (transform.position);
+        //transform.position = start_pos.worldPosition + new Vector3(0f,0.5f,0f);
 
 		currentCost = 0;
 		moveToNext = false;
