@@ -10,6 +10,8 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
     private float probOfAcceptance;
     private float e = 2.7182818284f;
     private int newSolutionCost;
+    public enum Activation_type {tempsobre2, temp097};
+    public Activation_type Escalonamento;
     private float zero = Mathf.Pow(10, -6);// numbers bellow this value can be considered zero.
 
     string fileName = "Assets/Logs/" + System.DateTime.Now.ToString("ddhmmsstt") + "_SimulatedAnnealingOptimiser.csv";
@@ -27,7 +29,7 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
     //Funcoes de escalonamento de temperatura
     protected float TemperatureSchedule(float Temperature)
     {
-        Temperature = 1/Temperature; 
+        Temperature = Temperature * 0.97f;
         return Temperature;
     }
 
@@ -53,7 +55,16 @@ public class SimulatedAnnealingOptimiser : OptimisationAlgorithm
                 CurrentSolutionCost = newSolutionCost;
             }
             //Funcao para fazer variar a temperatura ao longo do tempo.
-            Temperature = TemperatureSchedule(Temperature);
+            switch (Escalonamento)
+            {
+                case Activation_type.tempsobre2:
+                    Temperature = TemperatureSchedule2(Temperature);
+                    break;
+                case Activation_type.temp097:
+                    Temperature = TemperatureSchedule(Temperature);
+                    break;
+            }
+            
 
         }
         else
