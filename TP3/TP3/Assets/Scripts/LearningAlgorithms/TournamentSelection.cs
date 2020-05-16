@@ -33,15 +33,15 @@ public class TournamentSelection : SelectionMethod
 		Individual best = null;
 		int i;
 		Individual ind;
-		for (i = 0; i  < tournamentSize; i++)
+		for (i = 0; i < tournamentSize; i++)
 		{
 			ind = population[Random.Range(0, population.Count)];
-			if(best == null || ind.Fitness > best.Fitness)
+			if (best == null || ind.Fitness > best.Fitness)
 			{
 				best = ind.Clone();
 			}
 		}
 		return best;
-		throw new System.NotImplementedException();
+		
 	}
 }

@@ -55,7 +55,6 @@ public abstract class Individual {
 		evaluated = false;
         completedEvaluations = 0;
 		genotype = new float[totalSize];
-		//
 		this.mutation = mutation;
 	}
 

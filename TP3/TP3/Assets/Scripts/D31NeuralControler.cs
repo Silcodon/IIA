@@ -250,19 +250,10 @@ public class D31NeuralControler : MonoBehaviour
         menor = distanceToBall[0];
         for (int i = 1; i < distanceToBall.Count; i++)
         {
-
-            if (distanceToBall[i] < menor)
-            {
-                if (distanceToBall[i] != 0.0f)
-                {
-                    menor = distanceToBall[i];
-                }
-
-            }
-
+            menor += distanceToBall[i];
         }
-
-        fitness -= menor * 10.0f;
+        menor = menor / distanceToBall.Count;
+        fitness -= menor * 15.0f;
 
 
 
@@ -270,99 +261,66 @@ public class D31NeuralControler : MonoBehaviour
         for (int i = 1; i < distanceToMyGoal.Count; i++)
         {
 
-            if (distanceToMyGoal[i] > maior)
-            {
-                if (distanceToMyGoal[i] != 0.0f)
-                {
-                    maior = distanceToMyGoal[i];
-                }
-
-            }
+            maior += distanceToMyGoal[i];
 
         }
-
-        fitness += maior * 5.0f;
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 10.0f;
 
 
 
         menor = distanceToAdversaryGoal[0];
         for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
         {
-
-            if (distanceToAdversaryGoal[i] < menor)
-            {
-                if (distanceToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distanceToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distanceToAdversaryGoal[i];
         }
+        menor = menor / distanceToAdversaryGoal.Count;
+        fitness += menor * 15.0f;
 
 
-
-        fitness -= menor * 5.0f;
 
 
         maior = distancefromBallToMyGoal[0];
         for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
         {
-
-            if (distancefromBallToMyGoal[i] > maior)
-            {
-                if (distancefromBallToMyGoal[i] != 0.0f)
-                {
-                    maior = distancefromBallToMyGoal[i];
-                }
-
-            }
-
+            maior += distancefromBallToMyGoal[i];
         }
+        maior = maior / distancefromBallToMyGoal.Count;
+        fitness += maior * 8.0f;
 
-        fitness += maior * 5.0f;
+
+
+
 
         menor = distancefromBallToAdversaryGoal[0];
         for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
         {
-
-            if (distancefromBallToAdversaryGoal[i] < menor)
-            {
-                if (distancefromBallToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distancefromBallToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distancefromBallToAdversaryGoal[i];
         }
+        menor = menor / distancefromBallToAdversaryGoal.Count;
+        fitness -= menor * 2.0f;
 
-        fitness -= menor * 8.0f;
+
+
+
 
         maior = distanceToClosestWall[0];
         for (int i = 1; i < distanceToClosestWall.Count; i++)
         {
-
-            if (distanceToClosestWall[i] > maior)
-            {
-                if (distanceToClosestWall[i] != 0.0f)
-                {
-                    maior = distanceToClosestWall[i];
-                }
-
-            }
-
+            maior += distanceToClosestWall[i];
         }
+        maior = maior / distanceToClosestWall.Count;
+        fitness += maior * 10.0f;
 
-        fitness += maior*3.0f;
 
-        fitness += hitTheBall * 15.0f;
 
-        fitness -= hitTheWall * 3.0f;
+        fitness += hitTheBall * 7.0f;
 
-        fitness -= GoalsOnMyGoal * 20.0f;
+        fitness -= hitTheWall * 15.0f;
 
-        fitness += GoalsOnAdversaryGoal * 10.0f;
+        fitness -= GoalsOnMyGoal * 10.0f;
+
+        fitness += GoalsOnAdversaryGoal * 0.0f;
 
 
 
@@ -380,19 +338,10 @@ public class D31NeuralControler : MonoBehaviour
         menor = distanceToBall[0];
         for (int i = 1; i < distanceToBall.Count; i++)
         {
-
-            if (distanceToBall[i] < menor)
-            {
-                if (distanceToBall[i] != 0.0f)
-                {
-                    menor = distanceToBall[i];
-                }
-
-            }
-
+            menor += distanceToBall[i];
         }
-
-        fitness -= menor * 10.0f;
+        menor = menor / distanceToBall.Count;
+        fitness -= menor * 15.0f;
 
 
 
@@ -400,99 +349,66 @@ public class D31NeuralControler : MonoBehaviour
         for (int i = 1; i < distanceToMyGoal.Count; i++)
         {
 
-            if (distanceToMyGoal[i] > maior)
-            {
-                if (distanceToMyGoal[i] != 0.0f)
-                {
-                    maior = distanceToMyGoal[i];
-                }
-
-            }
+            maior += distanceToMyGoal[i];
 
         }
-
-        fitness += maior * 5.0f;
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 10.0f;
 
 
 
         menor = distanceToAdversaryGoal[0];
         for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
         {
-
-            if (distanceToAdversaryGoal[i] < menor)
-            {
-                if (distanceToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distanceToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distanceToAdversaryGoal[i];
         }
+        menor = menor / distanceToAdversaryGoal.Count;
+        fitness += menor * 15.0f;
 
 
-
-        fitness -= menor * 5.0f;
 
 
         maior = distancefromBallToMyGoal[0];
         for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
         {
-
-            if (distancefromBallToMyGoal[i] > maior)
-            {
-                if (distancefromBallToMyGoal[i] != 0.0f)
-                {
-                    maior = distancefromBallToMyGoal[i];
-                }
-
-            }
-
+            maior += distancefromBallToMyGoal[i];
         }
+        maior = maior / distancefromBallToMyGoal.Count;
+        fitness += maior * 8.0f;
 
-        fitness += maior * 5.0f;
+
+
+
 
         menor = distancefromBallToAdversaryGoal[0];
         for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
         {
-
-            if (distancefromBallToAdversaryGoal[i] < menor)
-            {
-                if (distancefromBallToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distancefromBallToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distancefromBallToAdversaryGoal[i];
         }
+        menor = menor / distancefromBallToAdversaryGoal.Count;
+        fitness -= menor * 2.0f;
 
-        fitness -= menor * 8.0f;
+
+
+
 
         maior = distanceToClosestWall[0];
         for (int i = 1; i < distanceToClosestWall.Count; i++)
         {
-
-            if (distanceToClosestWall[i] > maior)
-            {
-                if (distanceToClosestWall[i] != 0.0f)
-                {
-                    maior = distanceToClosestWall[i];
-                }
-
-            }
-
+            maior += distanceToClosestWall[i];
         }
+        maior = maior / distanceToClosestWall.Count;
+        fitness += maior * 10.0f;
 
-        fitness += maior*3.0f;
 
-        fitness += hitTheBall * 15.0f;
 
-        fitness -= hitTheWall * 3.0f;
+        fitness += hitTheBall * 7.0f;
 
-        fitness -= GoalsOnMyGoal * 20.0f;
+        fitness -= hitTheWall * 15.0f;
 
-        fitness += GoalsOnAdversaryGoal * 10.0f;
+        fitness -= GoalsOnMyGoal * 10.0f;
+
+        fitness += GoalsOnAdversaryGoal * 0.0f;
 
 
 
@@ -505,6 +421,7 @@ public class D31NeuralControler : MonoBehaviour
 
     //Defender
     //Defender Blue
+    /*
     public float GetScoreBlue()
     {
         float fitness = distanceTravelled;
@@ -514,18 +431,9 @@ public class D31NeuralControler : MonoBehaviour
         menor = distanceToBall[0];
         for (int i = 1; i < distanceToBall.Count; i++)
         {
-
-            if (distanceToBall[i] < menor)
-            {
-                if (distanceToBall[i] != 0.0f)
-                {
-                    menor = distanceToBall[i];
-                }
-
-            }
-
+            menor += distanceToBall[i];
         }
-
+        menor = menor / distanceToBall.Count;
         fitness -= menor * 15.0f;
 
 
@@ -534,91 +442,58 @@ public class D31NeuralControler : MonoBehaviour
         for (int i = 1; i < distanceToMyGoal.Count; i++)
         {
 
-            if (distanceToMyGoal[i] > maior)
-            {
-                if (distanceToMyGoal[i] != 0.0f)
-                {
-                    maior = distanceToMyGoal[i];
-                }
-
-            }
+            maior += distanceToMyGoal[i];
 
         }
-
-        fitness -= maior * 5.0f;
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 10.0f;
 
 
 
         menor = distanceToAdversaryGoal[0];
         for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
         {
-
-            if (distanceToAdversaryGoal[i] < menor)
-            {
-                if (distanceToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distanceToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distanceToAdversaryGoal[i];
         }
-
-
-
+        menor = menor / distanceToAdversaryGoal.Count;
         fitness += menor * 15.0f;
+
+
 
 
         maior = distancefromBallToMyGoal[0];
         for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
         {
-
-            if (distancefromBallToMyGoal[i] > maior)
-            {
-                if (distancefromBallToMyGoal[i] != 0.0f)
-                {
-                    maior = distancefromBallToMyGoal[i];
-                }
-
-            }
-
+            maior += distancefromBallToMyGoal[i];
         }
-
+        maior = maior / distancefromBallToMyGoal.Count;
         fitness += maior * 8.0f;
+
+
+
+
 
         menor = distancefromBallToAdversaryGoal[0];
         for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
         {
-
-            if (distancefromBallToAdversaryGoal[i] < menor)
-            {
-                if (distancefromBallToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distancefromBallToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distancefromBallToAdversaryGoal[i];
         }
-
+        menor = menor / distancefromBallToAdversaryGoal.Count;
         fitness -= menor * 2.0f;
+
+
+
+
 
         maior = distanceToClosestWall[0];
         for (int i = 1; i < distanceToClosestWall.Count; i++)
         {
-
-            if (distanceToClosestWall[i] > maior)
-            {
-                if (distanceToClosestWall[i] != 0.0f)
-                {
-                    maior = distanceToClosestWall[i];
-                }
-
-            }
-
+            maior += distanceToClosestWall[i];
         }
-
+        maior = maior / distanceToClosestWall.Count;
         fitness += maior * 10.0f;
+
+
 
         fitness += hitTheBall * 7.0f;
 
@@ -626,7 +501,7 @@ public class D31NeuralControler : MonoBehaviour
 
         fitness -= GoalsOnMyGoal * 10.0f;
 
-        //fitness += GoalsOnAdversaryGoal * 0.0f;
+        fitness += GoalsOnAdversaryGoal * 0.0f;
 
 
 
@@ -644,18 +519,9 @@ public class D31NeuralControler : MonoBehaviour
         menor = distanceToBall[0];
         for (int i = 1; i < distanceToBall.Count; i++)
         {
-
-            if (distanceToBall[i] < menor)
-            {
-                if (distanceToBall[i] != 0.0f)
-                {
-                    menor = distanceToBall[i];
-                }
-
-            }
-
+            menor += distanceToBall[i];
         }
-
+        menor = menor / distanceToBall.Count;
         fitness -= menor * 15.0f;
 
 
@@ -663,92 +529,59 @@ public class D31NeuralControler : MonoBehaviour
         maior = distanceToMyGoal[0];
         for (int i = 1; i < distanceToMyGoal.Count; i++)
         {
-            
-            if (distanceToMyGoal[i] > maior)
-            {
-                if (distanceToMyGoal[i] != 0.0f)
-                {
-                    maior = distanceToMyGoal[i];
-                }
 
-            }
+            maior += distanceToMyGoal[i];
 
         }
-        
-        fitness -= maior * 5.0f;
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 10.0f;
 
 
 
         menor = distanceToAdversaryGoal[0];
         for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
         {
-
-            if (distanceToAdversaryGoal[i] < menor)
-            {
-                if (distanceToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distanceToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distanceToAdversaryGoal[i];
         }
-
-
-
+        menor = menor / distanceToAdversaryGoal.Count;
         fitness += menor * 15.0f;
+
+
 
 
         maior = distancefromBallToMyGoal[0];
         for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
         {
-
-            if (distancefromBallToMyGoal[i] > maior)
-            {
-                if (distancefromBallToMyGoal[i] != 0.0f)
-                {
-                    maior = distancefromBallToMyGoal[i];
-                }
-
-            }
-
+            maior += distancefromBallToMyGoal[i];
         }
-
+        maior = maior / distancefromBallToMyGoal.Count;
         fitness += maior * 8.0f;
+
+
+
+
 
         menor = distancefromBallToAdversaryGoal[0];
         for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
         {
-
-            if (distancefromBallToAdversaryGoal[i] < menor)
-            {
-                if (distancefromBallToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distancefromBallToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distancefromBallToAdversaryGoal[i];
         }
-
+        menor = menor / distancefromBallToAdversaryGoal.Count;
         fitness -= menor * 2.0f;
+
+
+
+
 
         maior = distanceToClosestWall[0];
         for (int i = 1; i < distanceToClosestWall.Count; i++)
         {
-
-            if (distanceToClosestWall[i] > maior)
-            {
-                if (distanceToClosestWall[i] != 0.0f)
-                {
-                    maior = distanceToClosestWall[i];
-                }
-
-            }
-
+            maior += distanceToClosestWall[i];
         }
-
+        maior = maior / distanceToClosestWall.Count;
         fitness += maior * 10.0f;
+
+
 
         fitness += hitTheBall * 7.0f;
 
@@ -756,17 +589,17 @@ public class D31NeuralControler : MonoBehaviour
 
         fitness -= GoalsOnMyGoal * 10.0f;
 
-        //fitness += GoalsOnAdversaryGoal * 0.0f;
+        fitness += GoalsOnAdversaryGoal * 0.0f;
 
 
 
         return fitness;
     }
 
-  
+    */
     //Controlar a Bola
     //Controlar Blue
-    /*
+    
     public float GetScoreBlue()
     {
         float fitness = distanceTravelled;
@@ -776,19 +609,10 @@ public class D31NeuralControler : MonoBehaviour
         menor = distanceToBall[0];
         for (int i = 1; i < distanceToBall.Count; i++)
         {
-
-            if (distanceToBall[i] < menor)
-            {
-                if (distanceToBall[i] != 0.0f)
-                {
-                    menor = distanceToBall[i];
-                }
-
-            }
-
+            menor += distanceToBall[i];
         }
-
-        fitness -= menor * 15.0f;
+        menor = menor / distanceToBall.Count;
+        fitness -= menor * 20.0f;
 
 
 
@@ -796,91 +620,58 @@ public class D31NeuralControler : MonoBehaviour
         for (int i = 1; i < distanceToMyGoal.Count; i++)
         {
 
-            if (distanceToMyGoal[i] > maior)
-            {
-                if (distanceToMyGoal[i] != 0.0f)
-                {
-                    maior = distanceToMyGoal[i];
-                }
-
-            }
+            maior += distanceToMyGoal[i];
 
         }
-
-        fitness += maior * 3.0f;
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 3.0f;
 
 
 
         menor = distanceToAdversaryGoal[0];
         for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
         {
-
-            if (distanceToAdversaryGoal[i] < menor)
-            {
-                if (distanceToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distanceToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distanceToAdversaryGoal[i];
         }
+        menor = menor / distanceToAdversaryGoal.Count;
+        fitness += menor * 4.5f;
 
 
-
-        fitness -= menor * 4.5f;
 
 
         maior = distancefromBallToMyGoal[0];
         for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
         {
-
-            if (distancefromBallToMyGoal[i] > maior)
-            {
-                if (distancefromBallToMyGoal[i] != 0.0f)
-                {
-                    maior = distancefromBallToMyGoal[i];
-                }
-
-            }
-
+            maior += distancefromBallToMyGoal[i];
         }
-
+        maior = maior / distancefromBallToMyGoal.Count;
         fitness += maior * 3.0f;
+
+
+
+
 
         menor = distancefromBallToAdversaryGoal[0];
         for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
         {
-
-            if (distancefromBallToAdversaryGoal[i] < menor)
-            {
-                if (distancefromBallToAdversaryGoal[i] != 0.0f)
-                {
-                    menor = distancefromBallToAdversaryGoal[i];
-                }
-
-            }
-
+            menor += distancefromBallToAdversaryGoal[i];
         }
-
+        menor = menor / distancefromBallToAdversaryGoal.Count;
         fitness -= menor * 4.5f;
+
+
+
+
 
         maior = distanceToClosestWall[0];
         for (int i = 1; i < distanceToClosestWall.Count; i++)
         {
-
-            if (distanceToClosestWall[i] > maior)
-            {
-                if (distanceToClosestWall[i] != 0.0f)
-                {
-                    maior = distanceToClosestWall[i];
-                }
-
-            }
-
+            maior += distanceToClosestWall[i];
         }
-
+        maior = maior / distanceToClosestWall.Count;
         fitness += maior;
+
+
 
         fitness += hitTheBall * 10.0f;
 
@@ -900,132 +691,90 @@ public class D31NeuralControler : MonoBehaviour
     public float GetScoreRed()
     {
       float fitness = distanceTravelled;
-      float menor;
-      float maior;
+        float menor;
+        float maior;
 
-      menor = distanceToBall[0];
-      for (int i = 1; i < distanceToBall.Count; i++)
-      {
-
-          if (distanceToBall[i] < menor)
-          {
-              if (distanceToBall[i] != 0.0f)
-              {
-                  menor = distanceToBall[i];
-              }
-
-          }
-
-      }
-
-      fitness -= menor * 15.0f;
+        menor = distanceToBall[0];
+        for (int i = 1; i < distanceToBall.Count; i++)
+        {
+            menor += distanceToBall[i];
+        }
+        menor = menor / distanceToBall.Count;
+        fitness -= menor * 20.0f;
 
 
 
-      maior = distanceToMyGoal[0];
-      for (int i = 1; i < distanceToMyGoal.Count; i++)
-      {
+        maior = distanceToMyGoal[0];
+        for (int i = 1; i < distanceToMyGoal.Count; i++)
+        {
 
-          if (distanceToMyGoal[i] > maior)
-          {
-              if (distanceToMyGoal[i] != 0.0f)
-              {
-                  maior = distanceToMyGoal[i];
-              }
+            maior += distanceToMyGoal[i];
 
-          }
-
-      }
-
-      fitness += maior * 3.0f;
+        }
+        maior = maior / distanceToMyGoal.Count;
+        fitness -= maior * 3.0f;
 
 
 
-      menor = distanceToAdversaryGoal[0];
-      for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
-      {
-
-          if (distanceToAdversaryGoal[i] < menor)
-          {
-              if (distanceToAdversaryGoal[i] != 0.0f)
-              {
-                  menor = distanceToAdversaryGoal[i];
-              }
-
-          }
-
-      }
+        menor = distanceToAdversaryGoal[0];
+        for (int i = 1; i < distanceToAdversaryGoal.Count; i++)
+        {
+            menor += distanceToAdversaryGoal[i];
+        }
+        menor = menor / distanceToAdversaryGoal.Count;
+        fitness += menor * 4.5f;
 
 
 
-      fitness -= menor * 4.5f;
 
-
-      maior = distancefromBallToMyGoal[0];
-      for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
-      {
-
-          if (distancefromBallToMyGoal[i] > maior)
-          {
-              if (distancefromBallToMyGoal[i] != 0.0f)
-              {
-                  maior = distancefromBallToMyGoal[i];
-              }
-
-          }
-
-      }
-
-      fitness += maior * 3.0f;
-
-      menor = distancefromBallToAdversaryGoal[0];
-      for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
-      {
-
-          if (distancefromBallToAdversaryGoal[i] < menor)
-          {
-              if (distancefromBallToAdversaryGoal[i] != 0.0f)
-              {
-                  menor = distancefromBallToAdversaryGoal[i];
-              }
-
-          }
-
-      }
-
-      fitness -= menor * 4.5f;
-
-      maior = distanceToClosestWall[0];
-      for (int i = 1; i < distanceToClosestWall.Count; i++)
-      {
-
-          if (distanceToClosestWall[i] > maior)
-          {
-              if (distanceToClosestWall[i] != 0.0f)
-              {
-                  maior = distanceToClosestWall[i];
-              }
-
-          }
-
-      }
-
-      fitness += maior;
-
-      fitness += hitTheBall * 10.0f;
-
-      fitness -= hitTheWall * 7.0f;
-
-      fitness -= GoalsOnMyGoal;
-
-      fitness += GoalsOnAdversaryGoal;
+        maior = distancefromBallToMyGoal[0];
+        for (int i = 1; i < distancefromBallToMyGoal.Count; i++)
+        {
+            maior += distancefromBallToMyGoal[i];
+        }
+        maior = maior / distancefromBallToMyGoal.Count;
+        fitness += maior * 3.0f;
 
 
 
-      return fitness;
+
+
+        menor = distancefromBallToAdversaryGoal[0];
+        for (int i = 1; i < distancefromBallToAdversaryGoal.Count; i++)
+        {
+            menor += distancefromBallToAdversaryGoal[i];
+        }
+        menor = menor / distancefromBallToAdversaryGoal.Count;
+        fitness -= menor * 4.5f;
+
+
+
+
+
+        maior = distanceToClosestWall[0];
+        for (int i = 1; i < distanceToClosestWall.Count; i++)
+        {
+            maior += distanceToClosestWall[i];
+        }
+        maior = maior / distanceToClosestWall.Count;
+        fitness += maior;
+
+
+
+        fitness += hitTheBall * 10.0f;
+
+        fitness -= hitTheWall * 7.0f;
+
+        fitness -= GoalsOnMyGoal;
+
+        fitness += GoalsOnAdversaryGoal;
+
+
+
+        return fitness;
   }
-  */
-
   
+
+
 
 }

@@ -20,11 +20,25 @@ public class GeneticIndividual : Individual {
 
    public override void Initialize(NeuralNetwork nn)
     {
-        if (nn.networkSize != totalSize)
+        int size = nn.weights.Length * nn.weights[0].Length * nn.weights[0][0].Length;
+        if (size != totalSize)
         {
             throw new System.Exception("The Networks do not have the same size!");
         }
-        Debug.Log(nn.weights.SelectMany(listsLevel0 => listsLevel0.SelectMany(a => a).ToArray()).ToArray());
+
+        float[] weights = new float[size];
+        int weightPos = 0;
+        for (int i = 0; i < nn.weights.Length; i++)
+        {
+            for (int j = 0; j < nn.weights[i].Length; j++)
+            {
+                for (int k = 0; k < nn.weights[i][j].Length; k++)
+                {
+                    weights[weightPos++] = nn.weights[i][j][k];
+                }
+            }
+        }
+        weights.CopyTo(genotype, 0);
     }
 
     public override Individual Clone()
@@ -62,24 +76,25 @@ public class GeneticIndividual : Individual {
         }
     }
 
-    
+
     public void MutateGaussian(float probability)
     {
         /* YOUR CODE HERE! - Done */
-   
+
         float mean = 0.0f;
         float stdev = 0.5f;
         int i;
 
-        for (i = 0; i < genotype.Length; i++){
+        for (i = 0; i < genotype.Length; i++)
+        {
 
-            if(Random.Range(0.0f, 1.0f) < probability)
+            if (Random.Range(0.0f, 1.0f) < probability)
             {
                 genotype[i] = genotype[i] + NextGaussian(mean, stdev);
             }
 
         }
-       
+
     }
 
     public override void Crossover(Individual partner, float probability)
@@ -91,7 +106,8 @@ public class GeneticIndividual : Individual {
         int n_random = Random.Range(0, genotype.Length - 1);
 
 
-        if (Random.Range(0.0f, 1.0f) < probability){
+        if (Random.Range(0.0f, 1.0f) < probability)
+        {
             for (int i = 0; i < genotype.Length - 1; i++)
             {
                 if (i < n_random)
@@ -105,9 +121,9 @@ public class GeneticIndividual : Individual {
 
             }
         }
- 
-         
-    
+
+
+
     }
 
 

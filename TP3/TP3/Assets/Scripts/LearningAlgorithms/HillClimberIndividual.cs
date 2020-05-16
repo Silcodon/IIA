@@ -53,7 +53,6 @@ public class HillClimberIndividual : Individual {
     }
     public override void Crossover (Individual partner, float probability)
 	{
-        
 		throw new System.NotImplementedException ();
 	}
 

@@ -6,7 +6,6 @@ public abstract class SelectionMethod {
 
 	public SelectionMethod() {
 
-
 	}
 
 	//override on each specific selection class

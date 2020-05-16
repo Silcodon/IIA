@@ -368,16 +368,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutationMethod: 0
   selectionMethod: 0
-  populationSize: 20
+  populationSize: 1
   NNTopology: 0c0000000300000002000000
   numberOfGenerations: 10
-  seedPopulationFromFile: 0
-  pathToFileRed: 
-  pathToFileBlue: 
+  seedPopulationFromFile: 1
+  pathToFileRed: Assets/Logs/05-15-09-14-08_Defense/Best_Red_05-16-08-34-03_gen_1000.dat
+  pathToFileBlue: Assets/Logs/05-15-09-14-08_Control/Best_Blue_05-15-09-14-08_gen_1000.dat
   generation: 0
   logFilename: 
-  exportSuffix: _Defesa
-  tournamentSize: 3
+  exportSuffix: _teste
+  tournamentSize: 1
   mutationProbabilityRedPopulation: 0.15
   crossoverProbabilityRedPopulation: 0.9
   elitistRed: 1
